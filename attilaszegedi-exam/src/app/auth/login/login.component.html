@@ -7,30 +7,24 @@
         <div class="login-form">
             <mat-form-field appearance="outline">
                 <mat-label>Email</mat-label>
-                <input placeholder="Email@email.eu" type="text" matInput required [(ngModel)]="signupObj.email" [(ngModel)]="loginObj.email">
+                <input placeholder="Email@email.eu" type="text" matInput required [(ngModel)]="loginObj.email">
             </mat-form-field>
 
             <mat-form-field appearance="outline">
-                <mat-label>Name</mat-label>
-                <input placeholder="Username" type="text" matInput [(ngModel)]="signupObj.userName" [(ngModel)]="loginObj.userName">
-            </mat-form-field>
-    
-            <mat-form-field appearance="outline">
                 <mat-label>Password</mat-label>
-                <input placeholder="Password" type="password" matInput required [(ngModel)]="signupObj.password" [(ngModel)]="loginObj.password">
+                <input placeholder="Password" type="password" matInput required [(ngModel)]="loginObj.password">
             </mat-form-field>
         </div>
     </mat-card-content>
     
     <mat-card-actions>
         <div class="buttongroup">
-          <div class="spacer0"></div>
-           <div class="buttonlogin">
+          <div class="buttonlogin">
              <button mat-raised-button color="primary" (click)="login()">Login</button>
            </div>
-           <div class="spacer"></div>
-           <div class="buttonsingup">
-              <button mat-raised-button color="primary" (click)="signUp()">Sign Up</button>
+           
+           <div class="buttongosingup">
+              <button mat-raised-button color="primary" (click)="gosignUp()">Go to Sign Up</button>
            </div>
         </div>   
         </mat-card-actions>

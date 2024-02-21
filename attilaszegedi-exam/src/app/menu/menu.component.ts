@@ -15,15 +15,18 @@ import { Router } from '@angular/router';
   styleUrl: './menu.component.scss'
 })
 export class MenuComponent {
-
+  actuser= localStorage.getItem('currentUser');
+  
   constructor(
     
     private readonly router: Router
-  ){}
-   
+  ){ }
+  
 
    logout() {
     this.router.navigate(['/login']);
+    localStorage.removeItem('currentUser')
+    localStorage.removeItem('logged')
   }
 
 }

@@ -20,11 +20,7 @@ import { Router } from '@angular/router';
 
 export class LoginComponent implements OnInit {
   signupUsers: any[]=[];
-  signupObj:any={
-    userName:'',
-    email:'',
-    password:'',
-  };
+  
   loginObj:any={
     email:'',
     userName:'',
@@ -34,7 +30,7 @@ export class LoginComponent implements OnInit {
   email?:string;
   password?: string;
   userName?: string;
-  
+  isUserExist= undefined;
   constructor(
 
     private readonly router: Router,
@@ -53,39 +49,31 @@ export class LoginComponent implements OnInit {
 
   login() {
    
-    const isUserExist= this.signupUsers.find(m =>m.userName==this.loginObj.userName && m.password== this.loginObj.password);
+    const isUserExist= this.signupUsers.find(m =>m.email==this.loginObj.email && m.password== this.loginObj.password);
     console.log(this.signupUsers);
     if(isUserExist != undefined) {
         this.logged=true;
         localStorage.setItem(`currentUser`,JSON.stringify(this.loginObj));
         this.router.navigate(['/case']);
-        
+        localStorage.setItem(`logged`, JSON.stringify(this.logged));
         return isUserExist ;
     }else{
         this.router.navigate(['/login'])
         this.logged=false;
+        localStorage.setItem(`logged`, JSON.stringify(this.logged));
         
-       
-
     }
       
-    
   }
 
    get isLoggedIn() {
-      return this.logged !== undefined;
+      console.log(this.isUserExist);
+      return this.isUserExist !== undefined;
+      
     }
 
-  
-
-  signUp(){
-    this.signupUsers.push(this.signupObj);
-    localStorage.setItem('signUpUsers',JSON.stringify(this.signupUsers));
-    this.signupObj={
-      userName:'',
-      email:'',
-      password:''
-    };
+   gosignUp(){
+    this.router.navigate(['/reg'])
   }
 
   logout() {

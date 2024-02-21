@@ -6,6 +6,5 @@ import { LoginComponent} from './login/login.component';
 export const authGuard: CanActivateFn = () => {
   const logincomponent = inject(LoginComponent);
   const router = inject(Router);
-
   return logincomponent.isLoggedIn ? true : router.navigate(['/login']);
 };

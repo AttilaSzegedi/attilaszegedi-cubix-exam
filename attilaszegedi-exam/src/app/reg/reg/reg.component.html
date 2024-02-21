@@ -1,0 +1,31 @@
+<mat-card> <!-- based upon material ui documents-->
+    <mat-card-header>
+        <mat-card-title>Registration</mat-card-title>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="login-form">
+            <mat-form-field appearance="outline">
+                <mat-label>Email</mat-label>
+                <input placeholder="Email@email.eu" type="text" matInput required [(ngModel)]="signupObj.email">
+            </mat-form-field>
+
+            <mat-form-field appearance="outline">
+                <mat-label>Name</mat-label>
+                <input placeholder="Username" type="text" matInput [(ngModel)]="signupObj.userName" >
+            </mat-form-field>
+    
+            <mat-form-field appearance="outline">
+                <mat-label>Password</mat-label>
+                <input placeholder="Password" type="password" matInput required [(ngModel)]="signupObj.password" >
+            </mat-form-field>
+        </div>
+    </mat-card-content>
+    
+    <mat-card-actions>
+           <div class="buttonsingup">
+              <button mat-raised-button color="primary" (click)="signUp()">Sign Up</button>
+           </div> 
+            
+        </mat-card-actions>
+</mat-card>
